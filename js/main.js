@@ -220,7 +220,12 @@ function deleteFavorite(id) {
         }
     });
 
-    console.log(`'${target.name}' 즐겨찾기 및 찜 상태에서 제거됨`);
+    // console.log(`'${target.name}' 즐겨찾기 및 찜 상태에서 제거됨`);
+    if(window.dialogHandler&&typeof dialogHandler.showMOdalSimpleOk=== 'function'){
+        dialogHandler.showMOdalSimpleOk(
+            //[10-30:수정=> 즐겨찾기삭제안내]
+            "즐겨찾기 삭제", `'${target.name}'이(가) 즐겨찾기 및 찜 목록에서 제거되었습니다.`);
+    }
 }
 
 // 아코디언 클릭
@@ -318,6 +323,8 @@ $favList.addEventListener('change', e => {
 
 $favSearch.addEventListener('input', e => {
     const q = e.target.value.trim();
+    //[10-30:수정=>최신 즐겨찾기 목록(localStorage 기준) 불러오기]
+    favorites = storage.get('favorites', []);
     const filtered = favorites.filter(f => f.name.includes(q));
     renderFavorites(filtered);
 });
