@@ -1,0 +1,56 @@
+
+.bakeryInfoWindowCustom {
+    position: relative;
+    width: 20rem;
+    background: #fff7da;
+    border: 0.0625rem solid #f3e1a0;
+    border-radius: 1.2rem;
+    color: #5b3a1c;
+    font-size: 1rem;
+    text-align: center;
+    padding: 0.8rem 0.4rem;
+    z-index: 9999;
+}
+
+.bakeryTitle {
+    font-weight: 600;
+    font-size: 1.3rem;
+    color: #4b2e05;
+    margin: 0.6rem 0 0.8rem;
+    letter-spacing: -0.02rem;
+}
+
+.bakeryText {
+    color: #6b4b23;
+    font-weight: 500;
+    margin: 0.5rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    line-height: 1.4;
+}
+
+.bakeryText .info-icon {
+    width: 1.5rem;
+    height: 1.5rem;
+    vertical-align: middle;
+    opacity: 0.85;
+}
+.favorite-btn {
+    background: none;
+    border: none;
+    color: #ccc;
+    font-size: 18px;
+    cursor: pointer;
+    margin-left: 6px;
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.favorite-btn:hover {
+    transform: scale(1.2);
+}
+
+.favorite-btn.active {
+    color: #ff4d4d;
+}

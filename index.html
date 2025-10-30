@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8" />
+    <title>Bakery</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/icon/favicon.png" />
+    <!-- 카카오 지도 SDK -->
+    <script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=dbcb22a9911b142fc070c041189c30b6&libraries=services,clusterer,drawing"></script>
+    <script src="js/map.js"></script>
+    <!-- 검색 및 지도 초기화 코드 -->
+    <script defer src="js/searchHandler.js"></script>
+
+    <!-- 메인 기능 및 UI -->
+    <script defer src="js/main.js"></script>
+    <script defer src="js/dialog.js"></script>
+    <script defer src="js/searchresult.js"></script>
+    <script defer src="js/favoriteHandler.js"></script>
+    <script defer src="js/commentHandler.js"></script>
+
+
+</head>
+<body>
+<!--다이얼로그-->
+<div id="dialog">
+    <div class="modal">
+        <div class="title">제목</div>
+        <div class="content">내용</div>
+        <div class="button-container">
+            <button class="button" type="button">1</button>
+            <button class="button" type="button">2</button>
+        </div>
+    </div>
+</div>F
+<!--첫 진입 시 보이는 랜딩 화면 -->
+<section id="landing">
+    <div class="landing-content">
+        <h1 class="landing-title">My Bakery Map</h1>
+        <button id="enterBtn" class="enter-btn">시작하기</button>
+    </div>
+</section>
+
+
+<!--왼쪽 찜 목록 패널-->
+<aside id="favorite-panel" class="collapsed">
+    <div class="favorite-header">
+        <input type="text" id="favSearch" placeholder="찜 목록 검색" >
+    </div>
+
+    <!-- 아코디언 형태의 즐겨찾기 목록 -->
+    <ul id="favorite-list" class="accordion-list">
+        <!-- JS에서 동적으로 생성될 예정 -->
+    </ul>
+</aside>
+<aside id="search-panel" class="collapsed">
+    <ul id="search-results-list" class="accordion-list">
+    </ul>
+</aside>
+<!--리뷰패널-->
+<aside id="review-panel" class="collapsed">
+    <div class="review-header">
+        <select class="date">
+            <option value="1">최신순</option>
+            <option value="2">오래된순</option>
+        </select>
+    </div>
+    <ul id="review-results-list" class="accordion-list">
+    </ul>
+</aside>
+<!-- 메인 영역 -->
+<main>
+    <div class="map-area">
+        <!-- 검색창 -->
+        <div class="search-box">
+            <div class="search-inner">
+                <input type="text" id="searchInput" placeholder=" 예 : 식빵,마들렌,소금빵..." />
+
+                <div class="search-btn-group">
+                    <button id="searchBtn">검색</button>
+                    <img src="assets/icon/bread.png" alt="빵 아이콘" class="bread-icon" />
+                </div>
+            </div>
+
+            <!-- 검색기록 -->
+            <ul id="searchHistory" class="search-history"></ul>
+        </div>
+
+        <!-- 실제 지도 표시 영역 -->
+        <div id="map"></div>
+    </div>
+
+    <!-- 찜목록 토글 버튼 -->
+    <button id="toggleFavorites" class="toggle-btn">
+        <img src="assets/icon/arrow_right.png" alt="열기" class="toggle-icon" />
+        <span>MY 베이커리</span>
+    </button>
+    <button id="toggleSearch" class="toggle-btn">
+        <img src="assets/icon/arrow_right.png" alt="검색" class="toggle-icon"> <span>검색 결과</span>
+    </button>
+    <button id="toggleReview" class="toggle-btn">
+        <img src="assets/icon/review.png" alt="검색" class="toggle-icon">
+    </button>
+</main>
+</body>
+</html>

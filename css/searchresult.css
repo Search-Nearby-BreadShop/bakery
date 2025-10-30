@@ -1,0 +1,62 @@
+/* style.css 맨 아래에 추가 */
+
+/* ------------------------------
+   검색 결과 패널/버튼 (신규)
+------------------------------ */
+
+#toggleSearch {
+
+    top: 0.8rem;
+    left: 12.5rem;
+    background: #e0f2ff; /* (색상은 예시) */
+    color: #0d47a1;
+}
+
+#toggleSearch:hover {
+    background: #b3e5fc;
+}
+
+/* 2. '검색 결과' 패널 스타일 */
+/* (기존 #favorite-panel 스타일과 거의 동일) */
+#search-panel {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 28rem;
+    height: 100%;
+    background: #fff;
+    border-right: 1px solid #eee;
+    box-shadow: 0.4rem 0 1rem rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease;
+    transform: translateX(-100%);
+    z-index: 5; /* 찜 목록과 동일한 레벨 */
+}
+#search-panel .spring{
+    width: 100%;
+    height: 10%;
+}
+
+/* 3. '검색 결과' 패널 열릴 때 */
+#search-panel.open {
+    transform: translateX(0);
+}
+
+/* 4. '검색 결과' 리스트 높이 */
+/* (찜 목록과 달리 검색창이 없으므로, 높이를 100% 활용) */
+#search-panel .accordion-list {
+    list-style: none;
+    margin: 0;
+    padding: 1rem;
+    padding-top: 5rem; /* 토글 버튼들 가려지지 않게 여백 */
+    overflow-y: auto;
+    height: calc(100% - 6rem); /* (패딩값 제외) */
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(0, 0, 0, 0.2) transparent; /* thumb track */
+
+}
+
+#search-panel .accordion-list::-webkit-scrollbar {
+    width: 8px; /* 스크롤바의 두께 */
+}

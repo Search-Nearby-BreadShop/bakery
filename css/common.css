@@ -1,0 +1,9 @@
+
+a[href] {
+    color: inherit;
+    text-decoration: none;
+}
+a[href]:hover {
+    color: inherit;
+    text-decoration: underline;
+}

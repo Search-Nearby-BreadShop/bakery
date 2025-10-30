@@ -1,0 +1,151 @@
+button {
+    background-color: transparent;
+    border: none;
+    color: inherit;
+    font: inherit;
+    margin: 0;
+    margin-block: 0;
+    margin-inline: 0;
+    outline: 0;
+    padding: 0;
+    padding-block: 0;
+    padding-inline: 0;
+}
+
+
+/*다이얼로그*/
+#dialog {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color:#121212a0;
+    opacity: 0;
+    pointer-events: none;
+    position: fixed;
+    transition-duration: 175ms;
+    transition-property: opacity;
+    z-index: 999;
+}
+
+#dialog.visible {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+#dialog > .modal {
+    align-items: stretch;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    top: 50%;
+    left: 50%;
+    min-width: 30rem;
+    background-color: #ffffff;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    opacity: 0;
+    pointer-events: none;
+    position: absolute;
+    transform: rotate(0deg) scale(98.75%) translate(-50%, -50%);
+    transition-duration: 250ms;
+    transition-property: opacity, transfrom;
+    font-size: 1.5rem;
+}
+
+#dialog > .modal.visible {
+    opacity: 1;
+    pointer-events: auto;
+    transform: rotateY(0deg) scale(100%) translate(-50%, -50%);
+}
+
+#dialog > .modal.visible.collapsed {
+    filter: brightness(75%);
+    transform: rotateY(7.5deg) scale(98.75%) translate(calc(-50% - 1rem), -50%);
+}
+
+#dialog > .modal > .title {
+    background-color: #fff7da;
+    color: #4b2e05;
+    padding: 2rem 3rem;
+    font-weight: 700;
+    font-size: 1.8rem;
+    text-align: center;
+}
+
+#dialog > .modal > .content {
+    background-color: #ffffff;
+    color: #4b2e05;
+    line-height: 1.375rem;
+    padding: 3rem 3rem;
+}
+
+#dialog > .modal > .button-container {
+    background-color: #fff7da;
+    border-top: 0.0625rem solid #ffecb3;
+    color: #5d4037;
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 1fr;
+}
+
+#dialog > .modal > .button-container > .button {
+    padding: 1rem  3rem;
+}
+
+#dialog > .modal > .button-container > .button + .button {
+    border-left: 0.5rem solid #ffecb3;
+}
+
+#dialog > .modal > .button-container > .button:hover {
+    color: #4b2e05;
+}
+
+/* 리뷰작성시 컨텐츠 내용에 대한 css스타일  */
+.___review-write-form {
+    padding: 1.5rem 0; /* 내부 여백 */
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem; /* 요소 간 간격 */
+    color: #444;
+}
+
+.___review-write-form p {
+    font-size: 1.5rem;
+    margin: 0 0 0.5rem 0;
+    color: #333;
+}
+
+.___review-write-form ._caption {
+    display: block;
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #555;
+}
+
+
+.___review-write-form .-object-input._field {
+    width: 100%;
+    padding: 1rem 1.2rem;
+    border: 1px solid #ddd;
+    border-radius: 0.8rem;
+    box-sizing: border-box;
+    font-size: 1.4rem;
+    color: #333;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    outline: none;
+    font-family: inherit; /* 모달의 폰트 상속 */
+}
+
+
+.___review-write-form .-object-input._field:focus {
+    border-color: #fff0c9;
+    box-shadow: 0 0 0 1px #fff0d9;
+}
+
+.___review-write-form textarea {
+    resize: vertical; /* 수직 크기 조절만 허용 */
+    min-height: 10rem;
+    line-height: 1.6;
+}

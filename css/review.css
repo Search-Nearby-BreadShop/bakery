@@ -1,0 +1,90 @@
+#toggleReview {
+
+    top: 0.8rem;
+    left: 22.4rem;
+    background: #c8e6c9; /* (색상은 예시) */
+
+}
+#toggleReview:hover {
+    background: #4caf50c9;
+}
+
+/* ------------------------------
+   리뷰 패널 (Review Panel) 스타일
+   (즐겨찾기 목록과 동일한 좌측 슬라이드 방식)
+------------------------------ */
+#review-panel {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 28rem;
+    height: 100%;
+    background: #fff;
+    border-right: 1px solid #eee;
+    box-shadow: 0.4rem 0 1rem rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease;
+    transform: translateX(-100%);
+    z-index: 5;
+}
+
+#review-panel:not(.collapsed),
+#review-panel.open {
+    transform: translateX(0);
+}
+
+#review-panel .review-header {
+    padding: 1rem;
+    margin-top: 5rem;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+#review-panel .date {
+    margin: 0;
+    display: block;
+    width: 100%;
+    padding: 0.8rem 1rem;
+    border: 1px solid #ddd;
+    border-radius: 0.6rem;
+    box-sizing: border-box;
+    font-size: 1.4rem;
+    color: #808080FF;
+    background: #fff;
+    outline: none;
+    cursor: pointer;
+}
+
+
+#review-panel #review-results-list {
+    list-style: none;
+    margin: 0;
+    padding: 1rem;
+    overflow-y: auto;
+
+    /* review-header가 border-bottom을 가졌으므로 border-top 제거 */
+
+    /* 높이 재계산: 5rem (margin) + 2rem (header padding) + select 높이 약 3.5rem = 약 10.5rem 제외 */
+    height: calc(100% - 10.5rem);
+
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+#review-panel #review-results-list::-webkit-scrollbar {
+    display: none;
+}
+
+
+/* 리뷰하기 옆에있는 사진*/
+.review-write-map-btn::before {
+    content: "";
+    display: inline-block;
+    width: 1.2rem;
+    height: 1.2rem;
+    background-image: url("../assets/icon/review.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+
+}
