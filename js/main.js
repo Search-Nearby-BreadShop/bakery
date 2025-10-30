@@ -142,6 +142,7 @@ function renderFavorites(list = favorites) {
         return;
     }
 
+
     // 즐겨찾기 항목이 있을 때만 리스트 렌더링
     $favList.innerHTML = list.map(f => `
         <li class="accordion-item" data-id="${f.id}">
@@ -173,7 +174,6 @@ function renderFavorites(list = favorites) {
                 </div>
 
                 <div class="fav-actions">
-                    <button class="btn-map" data-id="${f.id}">지도에서 보기</button>
                     <button class="btn-delete" data-id="${f.id}">삭제</button>
                 </div>
             </div>

@@ -1,3 +1,10 @@
+
+window.kakaomap ??= null; // 만들어둔 map 인스턴스 저장용
+window.markerOverlay ??= null; // 전역 선언
+
+
+
+
 // (1) 검색기록 패널 렌더링 함수 추가 — window.onload 바깥에 작성
 function renderSearchHistoryPanel() {
     const history = JSON.parse(localStorage.getItem("searchHistory") || "[]");
@@ -105,14 +112,13 @@ window.onload = function() {
                 const lat = position.coords.latitude;
                 const lon = position.coords.longitude;
                 const userPosition = new kakao.maps.LatLng(lat, lon);
-
                 console.log("현재 위치 감지 완료:", lat, lon);
                 initializeMap(userPosition, userPosition);
             },
             function(error) {
                 //실패 또는 거부 시
                 console.warn("Geolocation failed: " + error.message);
-                alert("위치 정보를 가져오는 데 실패했습니다. 기본 위치(대구)로 설정합니다.");
+                dialogHandler.showMOdalSimpleOk('위치 정보를 가져오는데 실패했습니다.','기본 위치(대구)로 설정합니다.');
                 initializeMap(defaultPosition, null);
             },
             {
@@ -123,7 +129,7 @@ window.onload = function() {
         );
     } else {
         // Geolocation 미지원 브라우저
-        alert("이 브라우저에서는 Geolocation을 지원하지 않습니다. 기본 위치로 설정합니다.");
+        dialogHandler.showMOdalSimpleOk('warn','기본 위치(대구)로 설정합니다.');
         initializeMap(defaultPosition, null);
     }
 };

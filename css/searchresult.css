@@ -46,8 +46,7 @@
 #search-panel .accordion-list {
     list-style: none;
     margin: 0;
-    padding: 1rem;
-    padding-top: 5rem; /* 토글 버튼들 가려지지 않게 여백 */
+    padding: 5rem 1rem 1rem 1rem;
     overflow-y: auto;
     height: calc(100% - 6rem); /* (패딩값 제외) */
     box-sizing: border-box;
@@ -60,3 +59,123 @@
 #search-panel .accordion-list::-webkit-scrollbar {
     width: 8px; /* 스크롤바의 두께 */
 }
+
+/* ------------------------------
+   검색 결과 표시되는 li태그
+------------------------------ */
+
+.result-item {
+    background: #ffffff;
+    border: 1px solid #f0f0f0;
+    border-radius: 1rem;
+    margin-bottom: 1rem;
+    box-shadow: 0 0.4rem 0.8rem rgba(0,0,0,0.05);
+    transition: box-shadow 0.25s ease;
+    overflow: hidden;
+}
+
+.result-item:hover {
+    box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.08);
+}
+
+/* 버튼 영역 */
+.result-btn {
+    width: 100%;
+    background: #e0f2ff;
+    border: none;
+    outline: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.2rem 1.6rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #242424;
+    cursor: pointer;
+    transition: background 0.25s ease;
+}
+
+.result-btn:hover {
+    background: #b3e5fc;
+}
+
+.result-btn .arrow {
+    transition: transform 0.25s ease;
+    font-size: 1.4rem;
+    color: #795548;
+}
+
+.result-item.active .result-btn .arrow {
+    transform: rotate(180deg);
+}
+
+/* 내용 */
+.result-content {
+    max-height: 0;
+    overflow: hidden;
+    background: #ffffff;
+    transition: max-height 0.35s ease, padding 0.25s ease;
+    font-size: 1.25rem;
+    white-space: normal;
+    color:  #283a46;
+    padding: 0 1.6rem;
+}
+
+.result-item.active .result-content {
+    max-height: 20rem;
+    padding: 1.2rem 1.6rem 1.6rem;
+}
+
+
+/* 하단 버튼 */
+.res-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.8rem;
+    margin-top: 1.2rem;
+}
+
+.res-actions button {
+    border: none;
+    border-radius: 0.8rem;
+    padding: 0.6rem 1.2rem;
+    font-size: 1.3rem;
+    cursor: pointer;
+    transition: background 0.25s ease, transform 0.1s ease;
+    font-weight: 600;
+}
+
+.res-actions .btn-map {
+    background: #a5dcff;
+    color: #283a46;
+}
+
+.res-actions .btn-map:hover {
+    background: #b1d5f9;
+    transform: translateY(-1px);
+
+}
+
+.res-actions .btn-delete {
+    background: #ffe3e3;
+    color: #a33a3a;
+}
+
+.res-actions .btn-delete:hover {
+    background: #ffcaca;
+    transform: translateY(-1px);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

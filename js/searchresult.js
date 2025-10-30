@@ -47,28 +47,39 @@ if ($toggleSearch && $searchPanel) {
 // [10-29:수정] 검색결과 렌더링 함수 (append 지원 + 중복 방지)
 // ==============================
 function renderSearchResults(list, append = false) { // [10-29:수정] append 인자 추가
-    if (!list || list.length === 0) return;
+
+    if (!list || list.length === 0){
+        $searchResultsList.innerHTML= `
+            <li class="empty-message">
+                <p>즐겨찾기된 곳이 없습니다. 추가해주세요!</p>
+            </li>
+        `;
+        return;
+    }
+
 
     // [10-29:수정] 기존 place-id 목록 수집 → 중복 제거
-    const existingIds = Array.from($searchResultsList.querySelectorAll('.accordion-item'))
+    const existingIds = Array.from($searchResultsList.querySelectorAll('.result-item'))
         .map(el => el.dataset.placeId);
+
 
     const newItems = list.filter(place => !existingIds.includes(place.id));
 
     if (newItems.length === 0) return; // [10-29:수정] 모두 중복이면 추가 안 함
-console.log(newItems)
+
+// console.log(newItems)
     const newHTML = newItems.map(place => `
-        <li class="accordion-item" data-place-id="${place.id}">
-            <button class="accordion-btn" type="button">
+     <li class="result-item" data-place-id="${place.id}">
+            <button class="result-btn" type="button">
                 <span class="fav-title">${place.place_name}</span>
                 <span class="arrow">
                     <img src="assets/icon/arrow-bottom.png" alt="화살표" class="arrow-bottom" />
                 </span>
             </button>
-            <div class="accordion-content">
+            <div class="result-content">
                 <p><strong>주소:</strong> ${place.road_address_name || place.address_name}</p>
                 ${place.phone ? `<p><strong>전화번호:</strong> ${place.phone}</p>` : ''}
-                <div class="fav-actions">
+                <div class="res-actions">
                     <button class="btn-map transfer" data-url="${place.place_url}" >매장이동</button>
                    <!-- data-place-name 제거, ID만 전달 -->
                    <button class="btn-delete btn-review-write" data-place-id="${place.id}">리뷰작성</button>
@@ -78,6 +89,9 @@ console.log(newItems)
     `).join('');
 
     // [10-29:수정] append 여부에 따라 추가 or 교체
+    const emptyMsg=$searchResultsList.querySelector('.empty-message');
+    if(emptyMsg)emptyMsg.remove();
+
     if (append) {
         $searchResultsList.insertAdjacentHTML('beforeend', newHTML);
     } else {
@@ -95,6 +109,7 @@ const initialSearchResults = storage.get('bakeryResults', []);
 renderSearchResults(initialSearchResults);
 
 
+
 // ==============================
 // [10-29:수정] localStorage 변경 시 자동 반영
 // ==============================
@@ -110,13 +125,13 @@ window.addEventListener('storage', (e) => {
 // 클릭 이벤트 (아코디언, 지도 이동, 찜하기)
 // ==============================
 $searchResultsList.addEventListener('click', e => {
-    const btn = e.target.closest('.accordion-btn');
+    const btn = e.target.closest('.result-btn');
     const transferBtn = e.target.closest('.btn-map.transfer');
     const reviewWriteBtn = e.target.closest('.btn-review-write');
 
 
     if (btn) {
-        const item = btn.closest('.accordion-item');
+        const item = btn.closest('.result-item');
         item.classList.toggle('active');
     }
     if (transferBtn) {
@@ -132,21 +147,16 @@ $searchResultsList.addEventListener('click', e => {
 
     if (reviewWriteBtn) {
         e.stopPropagation();
-
-
         const placeId = reviewWriteBtn.dataset.placeId;
-
         ReviewWriteClick(placeId);
         return;
     }
 });
 
-/**
- placeId - 리뷰를 작성하는 장소의 고유 ID
- */
+/*placeId - 리뷰를 작성하는 장소의 고유 ID*/
 function ReviewWriteClick(placeId) {
-
-    const placeInfo = initialSearchResults.find(place => place.id === placeId);
+    const allResult = JSON.parse(localStorage.getItem('bakeryResults')??[]) ;
+    const placeInfo =   allResult .find(place => place.id === placeId);
 
     if (!placeInfo) {
         dialogHandler.showMOdalSimpleOk('오류', '장소 정보를 찾을 수 없습니다.');
@@ -155,7 +165,7 @@ function ReviewWriteClick(placeId) {
 
     const placeName = placeInfo.place_name;
 
-    // 별점 기능을 제거하고, 리뷰 내용만 입력받는 폼을 구성합니다.
+    //리뷰 내용만 입력받는 폼을 구성합니다.
     dialogHandler.showModal({
         // 모달 제목에 클릭한 가게 이름 동적 삽입
         title: `${placeName}에 대한 리뷰 작성`,

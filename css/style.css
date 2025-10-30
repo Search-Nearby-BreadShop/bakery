@@ -238,7 +238,7 @@ body {
     margin-top: 5rem;
     border-bottom: 1px solid #f0f0f0;
 }
-
+/*즐겨찾기 검색인풋창*/
 .favorite-header input {
     width: 100%;
     padding: 0.8rem 1rem;
@@ -246,7 +246,7 @@ body {
     border-radius: 0.6rem;
     box-sizing: border-box;
     font-size: 1.4rem;
-    color: #3e2723;
+    /*color: #3e2723;*/
     background: #fff;
     outline: none;
     transition: border-color 0.2s ease, box-shadow 0.2s ease;
@@ -314,7 +314,7 @@ body {
     color: #795548;
 }
 
-.accordion-item.active .accordion-btn .arrow {
+.accordion-item.active .accordion-btn .arrow { /*css->카테고리별색상교체->arrow가 rotate안됨*/
     transform: rotate(180deg);
 }
 

@@ -81,10 +81,131 @@
 .review-write-map-btn::before {
     content: "";
     display: inline-block;
-    width: 1.2rem;
-    height: 1.2rem;
+    width: 1.5rem;
+    height: 1.5rem;
+    /*line-height: 1;*/
+    vertical-align: middle;
     background-image: url("../assets/icon/review.png");
     background-size: cover;
     background-repeat: no-repeat;
 
 }
+
+.review-write-map-btn{
+    display: block;
+    width: 100%;
+    font-size: 1.1125rem;
+
+}
+
+/* ------------------------------
+   리뷰 결과 표시되는 li태그
+------------------------------ */
+
+.review-item {
+    background: #fff;
+    border: 1px solid #f0f0f0;
+    border-radius: 1rem;
+    margin-bottom: 1rem;
+    box-shadow: 0 0.4rem 0.8rem rgba(0,0,0,0.05);
+    transition: box-shadow 0.25s ease;
+    overflow: hidden;
+}
+
+.review-item:hover {
+    box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.08);
+}
+
+/* 버튼 영역 */
+.review-btn {
+    width: 100%;
+    background: #c8e6c9;
+    border: none;
+    outline: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.2rem 1.6rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #242424;
+    cursor: pointer;
+    transition: background 0.25s ease;
+}
+
+.review-btn:hover {
+    background: #b0e4b1
+}
+
+.review-btn .arrow {
+    transition: transform 0.25s ease;
+    font-size: 1.4rem;
+    color: #795548;
+}
+
+.review-item.active .review-btn .arrow {
+    transform: rotate(180deg);
+}
+
+/* 내용 */
+.review-content {
+    max-height: 0;
+    overflow: hidden;
+    background: #efffef;
+    transition: max-height 0.35s ease, padding 0.25s ease;
+    font-size: 1.25rem;
+    white-space: normal;
+    color:  #283a46;
+    padding: 0 1.6rem;
+}
+
+.review-item.active .review-content {
+    max-height: 20rem;
+    padding: 1.2rem 1.6rem 1.6rem;
+}
+
+
+/* 하단 버튼 */
+.rev-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.8rem;
+    margin-top: 1.2rem;
+}
+
+.rev-actions button {
+    border: none;
+    border-radius: 0.8rem;
+    padding: 0.6rem 1.2rem;
+    font-size: 1.3rem;
+    cursor: pointer;
+    transition: background 0.25s ease, transform 0.1s ease;
+    font-weight: 600;
+}
+
+.rev-actions .btn-map {
+    background: #a5e6a6;
+    color: #283a46;
+}
+
+.rev-actions .btn-map:hover {
+    background: #93da94;
+    transform: translateY(-1px);
+
+}
+
+.rev-actions .btn-delete {
+    background: #ffe3e3;
+    color: #a33a3a;
+}
+
+.rev-actions .btn-delete:hover {
+    background: #ffcaca;
+    transform: translateY(-1px);
+}
+
+
+
+
+
+

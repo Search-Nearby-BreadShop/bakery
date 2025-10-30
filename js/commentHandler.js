@@ -48,13 +48,10 @@ function deleteReview($itemToDelete) {
 
 
 
+
 function editReview($itemToEdit) {
     const reviewId = $itemToEdit.dataset.reviewId;
 
-    if (!reviewId) {
-        console.error("수정할 리뷰 ID를 찾을 수 없습니다.");
-        return;
-    }
 
     let reviews = JSON.parse(localStorage.getItem('bakeryReviews') ?? '[]');
     const existingReviewIndex = reviews.findIndex(review => review.date === reviewId);
@@ -151,20 +148,33 @@ function renderReviews(sortValue = '1') {
 
     const reviews = JSON.parse(localStorage.getItem('bakeryReviews') ?? '[]');
 
-    if (sortValue === '2') {
-        reviews.reverse();
-    }
+    // if (sortValue === '2') {
+    //     reviews.reverse();
+    // }
+
+    reviews.sort((a, b) => {
+        const dateA = Date.parse(a.date) || 0;
+        const dateB = Date.parse(b.date) || 0;
+
+        if (sortValue === '1') {
+            // 최신순 (최근 수정된 게 위)
+            return dateB - dateA;
+        } else if (sortValue === '2') {
+            // 오래된 순
+            return dateA - dateB;
+        }
+        return 0;
+    });
 
     $reviewResultsList.innerHTML = '';
 
     if (!reviews || reviews.length === 0) {
         $reviewResultsList.innerHTML = `
-            <li class="accordion-item">
-                <button class="accordion-btn" type="button" disabled>
+            <li class="review-item">
+                <button class="review-btn" type="button" disabled>
                  작성된 리뷰가 없습니다
                 </button>
-            </li>`;
-        return;
+            </li>`
     }
     for (const review of reviews) {
 
@@ -179,18 +189,18 @@ function renderReviews(sortValue = '1') {
         });
 
         const reviewHtml = `
-            <li class="accordion-item" data-place-id="${review.placeId}" data-review-id="${review.date}">
-                <button class="accordion-btn" type="button">
+             <li class="review-item" data-place-id="${review.placeId}" data-review-id="${review.date}">
+                <button class="review-btn" type="button">
                     <span class="fav-title">${review.placeName}</span>
                     <span class="arrow">
                      <img src="assets/icon/arrow-bottom.png" alt="화살표" class="arrow-bottom" />
                     </span>
                 </button>
-                <div class="accordion-content">
+                <div class="review-content">
                     <p><strong>작성일:</strong> ${dateString}</p>
                     <p class="review-comment">${review.comment}</p>
                     
-                     <div class="fav-actions">
+                     <div class="rev-actions">
                    <button class="btn-map transfer" data-review-id="${review.date}">수정하기</button>
                    <button class="btn-delete btn-delete-review" data-review-id="${review.date}">삭제하기</button>
                     </div>
@@ -211,7 +221,7 @@ if ($sortReviews) {
 
 
 $reviewResultList.addEventListener('click', e => {
-    const btn = e.target.closest('.accordion-btn');
+    const btn = e.target.closest('.review-btn');
     const deleteReviewBtn = e.target.closest('.btn-delete-review');
     const editReviewBtn = e.target.closest('.btn-map.transfer'); // 수정 버튼
 
@@ -219,7 +229,7 @@ $reviewResultList.addEventListener('click', e => {
         e.stopPropagation();
 
         // 클릭된 버튼의 가장 가까운 상위 li 요소를 찾습니다.
-        const $itemToDelete = deleteReviewBtn.closest('.accordion-item');
+        const $itemToDelete = deleteReviewBtn.closest('.review-item');
 
         if ($itemToDelete) {
             deleteReview($itemToDelete);
@@ -231,7 +241,7 @@ $reviewResultList.addEventListener('click', e => {
 
     if (editReviewBtn) {
         e.stopPropagation();
-        const $itemToEdit = editReviewBtn.closest('.accordion-item');
+        const $itemToEdit = editReviewBtn.closest('.review-item');
 
         if ($itemToEdit) {
             editReview($itemToEdit);
@@ -244,7 +254,7 @@ $reviewResultList.addEventListener('click', e => {
 
     // 열기/닫기
     if (btn) {
-        const item = btn.closest('.accordion-item');
+        const item = btn.closest('.review-item');
         item.classList.toggle('active');
     }
 });
