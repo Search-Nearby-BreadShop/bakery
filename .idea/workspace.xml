@@ -4,22 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d395d9e7-02e2-4e9e-83a7-67b10f939f9a" name="변경" comment="즐겨찾기 삭제 오류 디버깅!">
-      <change afterPath="$PROJECT_DIR$/css/accordion.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/css/favorite.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/css/landing.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/css/search.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/css/suppor-comment.css" afterDir="false" />
+    <list default="true" id="d395d9e7-02e2-4e9e-83a7-67b10f939f9a" name="변경" comment="최종구현 완료!">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/searchresult.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/searchresult.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/commentHandler.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/commentHandler.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/favoriteHandler.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/favoriteHandler.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/searchHandler.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/searchHandler.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/searchresult.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/searchresult.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/tmp.js" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -123,6 +112,9 @@
       <workItem from="1761886042598" duration="2333000" />
       <workItem from="1761888463335" duration="5548000" />
       <workItem from="1761894850145" duration="204000" />
+      <workItem from="1761895078648" duration="92000" />
+      <workItem from="1761895181099" duration="13000" />
+      <workItem from="1761895197721" duration="1722000" />
     </task>
     <task id="LOCAL-00001" summary="즐겨찾기 삭제 오류 디버깅!">
       <option name="closed" value="true" />
@@ -132,7 +124,15 @@
       <option name="project" value="LOCAL" />
       <updated>1761828028997</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="최종구현 완료!">
+      <option name="closed" value="true" />
+      <created>1761895093913</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1761895093913</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -140,6 +140,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="즐겨찾기 삭제 오류 디버깅!" />
-    <option name="LAST_COMMIT_MESSAGE" value="즐겨찾기 삭제 오류 디버깅!" />
+    <MESSAGE value="최종구현 완료!" />
+    <option name="LAST_COMMIT_MESSAGE" value="최종구현 완료!" />
   </component>
 </project>

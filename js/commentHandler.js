@@ -132,7 +132,6 @@ if ($toggleReview && $reviewPanel) {
         $reviewPanel.classList.toggle('open');
 
         if ($reviewPanel.classList.contains('open')) {
-
             renderReviews(getCurrentSortValue());
             $toggleReview.classList.add('open');
         } else {
@@ -144,7 +143,7 @@ if ($toggleReview && $reviewPanel) {
 function renderReviews(sortValue = '1') {
 
     const $reviewResultsList = document.getElementById('review-results-list');
-
+    /*reviewPanel=storage.get('reviewResultsList' , []);*/
     const reviews = JSON.parse(localStorage.getItem('bakeryReviews') ?? '[]');
 
     // if (sortValue === '2') {

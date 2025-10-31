@@ -4,9 +4,8 @@
 const $toggleSearch = document.getElementById('toggleSearch');
 const $searchPanel = document.getElementById('search-panel');
 const $searchResultsList = document.getElementById('search-results-list');
-
 const $toggleSearchIcon = $toggleSearch?.querySelector('.toggle-icon');
-const $toggleSearchText = $toggleSearch?.querySelector('span');
+
 
 if ($toggleSearch && $searchPanel) {
     $toggleSearch.addEventListener('click', () => {
@@ -210,6 +209,7 @@ function ReviewWriteClick(placeId) {
                     dialogHandler.hideModal($modal);
 
                     dialogHandler.showMOdalSimpleOk('완료', `${placeName}에 대한 리뷰가 저장되었습니다.`);
+                    renderReviews(getCurrentSortValue());
                 }
             }
         ]
