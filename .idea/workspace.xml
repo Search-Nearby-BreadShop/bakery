@@ -4,11 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d395d9e7-02e2-4e9e-83a7-67b10f939f9a" name="변경" comment="최종구현 완료!">
+    <list default="true" id="d395d9e7-02e2-4e9e-83a7-67b10f939f9a" name="변경" comment="찐찐막">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/commentHandler.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/commentHandler.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/searchresult.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/searchresult.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -114,7 +112,10 @@
       <workItem from="1761894850145" duration="204000" />
       <workItem from="1761895078648" duration="92000" />
       <workItem from="1761895181099" duration="13000" />
-      <workItem from="1761895197721" duration="1722000" />
+      <workItem from="1761895197721" duration="1762000" />
+      <workItem from="1761897032071" duration="18000" />
+      <workItem from="1761897064506" duration="92000" />
+      <workItem from="1761897193934" duration="9000" />
     </task>
     <task id="LOCAL-00001" summary="즐겨찾기 삭제 오류 디버깅!">
       <option name="closed" value="true" />
@@ -132,7 +133,15 @@
       <option name="project" value="LOCAL" />
       <updated>1761895093913</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="찐찐막">
+      <option name="closed" value="true" />
+      <created>1761896942239</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1761896942239</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -141,6 +150,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="즐겨찾기 삭제 오류 디버깅!" />
     <MESSAGE value="최종구현 완료!" />
-    <option name="LAST_COMMIT_MESSAGE" value="최종구현 완료!" />
+    <MESSAGE value="찐찐막" />
+    <option name="LAST_COMMIT_MESSAGE" value="찐찐막" />
   </component>
 </project>
