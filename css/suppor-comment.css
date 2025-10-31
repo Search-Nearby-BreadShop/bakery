@@ -1,0 +1,42 @@
+.result-comment .comment {
+    z-index: 9000;
+    position: absolute;
+    top: 4.8rem;
+    left: 11.3rem;
+    background: #4f4f4fa0;
+    padding: 0.5rem;
+    border-radius: 0.6rem;
+    color: white;
+    display: none;
+}
+#toggleSearch:hover ~.result-comment .comment {
+    display: block;
+}
+.review-comment .comment {
+    z-index: 9000;
+    position: absolute;
+    top: 4.8rem;
+    left: 21.3rem;
+    background: #4f4f4fa0;
+    padding: 0.5rem;
+    border-radius: 0.6rem;
+    color: white;
+    display: none;
+}
+#toggleReview:hover ~.review-comment .comment {
+    display: block;
+}
+.favorite-comment .comment {
+    z-index: 9000;
+    position: absolute;
+    top: 4.8rem;
+    left: 1rem;
+    background: #4f4f4fa0;
+    padding: 0.5rem;
+    border-radius: 0.6rem;
+    color: white;
+    display: none;
+}
+#toggleFavorites:hover ~.favorite-comment .comment {
+    display: block;
+}

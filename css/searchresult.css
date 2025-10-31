@@ -113,7 +113,7 @@
 .result-content {
     max-height: 0;
     overflow: hidden;
-    background: #ffffff;
+    background: #f1fdff;
     transition: max-height 0.35s ease, padding 0.25s ease;
     font-size: 1.25rem;
     white-space: normal;

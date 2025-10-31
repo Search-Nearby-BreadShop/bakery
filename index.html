@@ -10,7 +10,6 @@
     <script src="js/map.js"></script>
     <!-- 검색 및 지도 초기화 코드 -->
     <script defer src="js/searchHandler.js"></script>
-
     <!-- 메인 기능 및 UI -->
     <script defer src="js/main.js"></script>
     <script defer src="js/dialog.js"></script>
@@ -21,6 +20,7 @@
 
 </head>
 <body>
+
 <!--다이얼로그-->
 <div id="dialog">
     <div class="modal">
@@ -31,7 +31,7 @@
             <button class="button" type="button">2</button>
         </div>
     </div>
-</div>F
+</div>
 <!--첫 진입 시 보이는 랜딩 화면 -->
 <section id="landing">
     <div class="landing-content">
@@ -44,7 +44,8 @@
 <!--왼쪽 찜 목록 패널-->
 <aside id="favorite-panel" class="collapsed">
     <div class="favorite-header">
-        <input type="text" id="favSearch" placeholder="찜 목록 검색" >
+        <label for="favSearch" class="visually-hidden"></label>
+        <input type="text" id="favSearch" placeholder="찜 목록 검색" />
     </div>
 
     <!-- 아코디언 형태의 즐겨찾기 목록 -->
@@ -73,14 +74,14 @@
         <!-- 검색창 -->
         <div class="search-box">
             <div class="search-inner">
-                <input type="text" id="searchInput" placeholder=" 예 : 식빵,마들렌,소금빵..." />
-
+                <label>
+                    <input type="text" id="searchInput" placeholder=" 예 : 식빵,마들렌,소금빵..." />
+                </label>
                 <div class="search-btn-group">
                     <button id="searchBtn">검색</button>
                     <img src="assets/icon/bread.png" alt="빵 아이콘" class="bread-icon" />
                 </div>
             </div>
-
             <!-- 검색기록 -->
             <ul id="searchHistory" class="search-history"></ul>
         </div>
@@ -94,12 +95,23 @@
         <img src="assets/icon/arrow_right.png" alt="열기" class="toggle-icon" />
         <span>MY 베이커리</span>
     </button>
+    <!-- 검색결과 토글 버튼 -->
     <button id="toggleSearch" class="toggle-btn">
         <img src="assets/icon/arrow_right.png" alt="검색" class="toggle-icon"> <span>검색 결과</span>
     </button>
+    <!-- 댓글창 토글 버튼 -->
     <button id="toggleReview" class="toggle-btn">
         <img src="assets/icon/review.png" alt="검색" class="toggle-icon">
     </button>
+    <div class="result-comment">
+        <span class="comment">검색결과는 마커 클릭시 반영됩니다.</span>
+    </div>
+    <div class="review-comment">
+        <span class="comment">리뷰메세지는 리뷰작성 후 저장시 바로 반영됩니다.</span>
+    </div>
+    <div class="favorite-comment">
+        <span class="comment">MY베이커리는 하트버튼 클릭시 반영됩니다.</span>
+    </div>
 </main>
 </body>
 </html>

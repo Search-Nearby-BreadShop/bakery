@@ -4,14 +4,34 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d395d9e7-02e2-4e9e-83a7-67b10f939f9a" name="변경" comment="">
+    <list default="true" id="d395d9e7-02e2-4e9e-83a7-67b10f939f9a" name="변경" comment="즐겨찾기 삭제 오류 디버깅!">
+      <change afterPath="$PROJECT_DIR$/css/accordion.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/css/favorite.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/css/landing.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/css/search.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/css/suppor-comment.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/dialog.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/dialog.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/searchresult.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/searchresult.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/commentHandler.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/commentHandler.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/favoriteHandler.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/favoriteHandler.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/searchHandler.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/searchHandler.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/searchresult.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/searchresult.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/tmp.js" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="CSS File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -22,12 +42,12 @@
     &quot;assignee&quot;: &quot;gyumin123&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/Search-Nearby-BreadShop/bakery.git",
-    "accountId": "84df7f54-9b53-4f58-9b48-b872b17815cb"
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/Search-Nearby-BreadShop/bakery.git&quot;,
+    &quot;accountId&quot;: &quot;84df7f54-9b53-4f58-9b48-b872b17815cb&quot;
   }
-}]]></component>
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 4
 }</component>
@@ -36,28 +56,29 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultAutoModeForALLUsers.v1": "true",
-    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
-    "git-widget-placeholder": "main",
-    "junie.onboarding.icon.badge.shown": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/Users/parkgyumin/Desktop/bakery",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.lookFeel",
-    "to.speed.mode.migration.done": "true",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultAutoModeForALLUsers.v1&quot;: &quot;true&quot;,
+    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/parkgyumin/Desktop/bakery&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
+    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration default="true" type="JetRunConfigurationType">
       <module name="backery" />
@@ -89,11 +110,36 @@
       <workItem from="1761815218583" duration="68000" />
       <workItem from="1761815311143" duration="8000" />
       <workItem from="1761826029470" duration="17000" />
-      <workItem from="1761826451943" duration="1279000" />
+      <workItem from="1761826451943" duration="2529000" />
+      <workItem from="1761829025098" duration="46000" />
+      <workItem from="1761829129982" duration="142000" />
+      <workItem from="1761868619282" duration="597000" />
+      <workItem from="1761870224027" duration="98000" />
+      <workItem from="1761876266464" duration="73000" />
+      <workItem from="1761876370066" duration="2116000" />
+      <workItem from="1761878505060" duration="2236000" />
+      <workItem from="1761881530752" duration="240000" />
+      <workItem from="1761881831921" duration="833000" />
+      <workItem from="1761886042598" duration="2333000" />
+      <workItem from="1761888463335" duration="5548000" />
+      <workItem from="1761894850145" duration="204000" />
     </task>
+    <task id="LOCAL-00001" summary="즐겨찾기 삭제 오류 디버깅!">
+      <option name="closed" value="true" />
+      <created>1761828028997</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1761828028997</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="즐겨찾기 삭제 오류 디버깅!" />
+    <option name="LAST_COMMIT_MESSAGE" value="즐겨찾기 삭제 오류 디버깅!" />
   </component>
 </project>

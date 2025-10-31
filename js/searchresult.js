@@ -51,7 +51,7 @@ function renderSearchResults(list, append = false) { // [10-29:수정] append �
     if (!list || list.length === 0){
         $searchResultsList.innerHTML= `
             <li class="empty-message">
-                <p>즐겨찾기된 곳이 없습니다. 추가해주세요!</p>
+                <p>검색된 곳이 없습니다. 추가해주세요!</p>
             </li>
         `;
         return;

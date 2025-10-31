@@ -1,0 +1,74 @@
+/* 랜딩 페이지*/
+
+#landing {
+    position: fixed;
+    inset: 0;
+    background-image: url("../assets/images/landing.jpg");
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 9999;
+    transition: transform 1s ease-in-out;
+}
+
+.landing-content {
+    text-align: center;
+    color: #4e3b2b;
+    animation: fadeIn 1.2s ease forwards;
+}
+
+.landing-title {
+    font-size: 4rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    letter-spacing: -0.05rem;
+}
+
+.landing-sub {
+    font-size: 1.6rem;
+    margin-bottom: 3rem;
+}
+
+.enter-btn {
+    padding: 1.4rem 3rem;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 3rem;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(12px) saturate(150%);
+    -webkit-backdrop-filter: blur(12px) saturate(150%);
+    box-shadow: 0 4px 20px rgba(62, 39, 35, 0.15);
+    font-size: 1.6rem;
+    cursor: pointer;
+    transition: all 0.35s ease;
+    color: #3E2723;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+}
+
+/*호버*/
+.enter-btn:hover {
+    background: rgba(255, 255, 255, 0.25);
+    box-shadow: 0 6px 25px rgba(197, 162, 83, 0.25);
+    transform: translateY(-2px);
+    border-color: rgba(255, 255, 255, 0.5);
+}
+
+/* 클릭*/
+.enter-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 8px rgba(62, 39, 35, 0.2);
+}
+
+
+/* 왼쪽으로 밀리는 애니메이션 */
+#landing.slide-left {
+    transform: translateX(-100%);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(1rem); }
+    to { opacity: 1; transform: translateY(0); }
+}

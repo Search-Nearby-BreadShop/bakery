@@ -1,0 +1,51 @@
+/*즐겨찾기 패널*/
+#favorite-panel {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 28rem;
+    height: 100%;
+    background: #fff;
+    border-right: 1px solid #eee;
+    box-shadow: 0.4rem 0 1rem rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease;
+    transform: translateX(-100%);
+    z-index: 5;
+}
+
+#favorite-panel.open {
+    transform: translateX(0);
+}
+
+.favorite-header {
+    padding: 1rem;
+    margin-top: 5rem;
+    border-bottom: 1px solid #f0f0f0;
+}
+/*10-30일 : 아코디언 패널 여백*/
+#search-panel .accordion-list {
+    margin-top: 1rem; /* 즐겨찾기 패널과 동일한 간격 */
+}
+/*즐겨찾기 검색인풋창*/
+.favorite-header input {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    border: 1px solid #ddd;
+    border-radius: 0.6rem;
+    box-sizing: border-box;
+    font-size: 1.4rem;
+    /*color: #3e2723;*/
+    background: #fff;
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.favorite-header input:focus {
+    border-color: #ffcc80;
+    box-shadow: 0 0 0 2px rgba(255, 224, 178, 0.4);
+}
+
+.fav-phone,.fav-address {
+    color: #581B00;
+    text-decoration: none !important;
+}

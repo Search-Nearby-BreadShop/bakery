@@ -36,7 +36,7 @@ window.addEventListener('DOMContentLoaded', () => {
                 window.storage.set("favorites", favorites);
                 window.renderFavorites(favorites);
                 target.classList.remove("active");
-                alert(`${name} 즐겨찾기 목록에서 삭제되었습니다.`);
+                dialogHandler.showMOdalSimpleOk('따끈따끈 베이커리 🥨',`${name} 즐겨찾기 목록에서 삭제되었습니다.`);
                 return;
             }
         }
@@ -54,6 +54,6 @@ window.addEventListener('DOMContentLoaded', () => {
         window.storage.set("favorites", favorites);
         window.renderFavorites(favorites);
         target.classList.add("active");
-        alert(`${name} 즐겨찾기에 추가되었습니다.`);
+        dialogHandler.showMOdalSimpleOk('따끈따끈 베이커리 🥨',`${name} 즐겨찾기 목록에 추가되었습니다.`);
     });
 });

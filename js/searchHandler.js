@@ -27,7 +27,6 @@ function initMapSearch(map, userPosition) {
         const xhr = new XMLHttpRequest();
         const REST_API_KEY = "4f06c4d97874ff86be3d1acdd4846b17";
         const url = `https://dapi.kakao.com/v2/local/search/keyword.json?query=${encodeURIComponent(keyword)}&x=${center.getLng()}&y=${center.getLat()}&radius=${radius}`;
-
         xhr.open("GET", url);
         xhr.setRequestHeader("Authorization", `KakaoAK ${REST_API_KEY}`);
 
@@ -221,12 +220,22 @@ function initMapSearch(map, userPosition) {
         }
 
         // ===== 즐겨찾기 버튼 클릭 =====
+        // 맞춤법 맞추는 함수 구현하기!
         const favoriteBtn = overlayContent.querySelector(".favorite-btn");
         favoriteBtn.addEventListener("click", (e) => {
             e.stopPropagation();
             let favorites = JSON.parse(localStorage.getItem("favorites") || "[]");
             const idx = favorites.findIndex(f => f.name === place.place_name);
-
+            const getJosa = (word) => {
+                if (!word) return '가';
+                const lastChar = word.charCodeAt(word.length - 1);
+                if (lastChar < 0xAC00 || lastChar > 0xD7A3) {
+                    return '가';
+                }
+                const hasJongseong = (lastChar - 0xAC00) % 28;
+                return hasJongseong ? '이' : '가';
+            };
+            const josa = getJosa(place.place_name);
             if (idx === -1) {
                 const newItem = {
                     id: Date.now(),
@@ -238,11 +247,11 @@ function initMapSearch(map, userPosition) {
                 };
                 favorites.push(newItem);
                 favoriteBtn.classList.add("active");
-                dialogHandler.showMOdalSimpleOk('따끈따끈 베이커리 🥨', `${place.place_name}이(가) 즐겨찾기에 추가되었습니다.`);
+                dialogHandler.showMOdalSimpleOk('따끈따끈 베이커리 🥨', `${place.place_name}${josa} 즐겨찾기에 추가되었습니다.`);
             } else {
                 favorites.splice(idx, 1);
                 favoriteBtn.classList.remove("active");
-                dialogHandler.showMOdalSimpleOk('따끈따끈 베이커리 🥨', `${place.place_name}이(가) 즐겨찾기에서 삭제되었습니다.`);
+                dialogHandler.showMOdalSimpleOk('따끈따끈 베이커리 🥨', `${place.place_name}${josa} 즐겨찾기에서 삭제되었습니다.`);
             }
 
             localStorage.setItem("favorites", JSON.stringify(favorites));
@@ -255,23 +264,9 @@ function initMapSearch(map, userPosition) {
     const $searchBtn = document.getElementById('searchBtn');
     const $searchHistory = document.getElementById('searchHistory');
 
-    function loadSearchHistory() {
-        const history = JSON.parse(localStorage.getItem("searchHistory") || "[]");
-        if (!$searchHistory) return;
-        $searchHistory.innerHTML = history
-            .map(keyword => `<li><span>${keyword}</span><button class="delete-history">×</button></li>`)
-            .join('');
-    }
-
-    function saveSearchHistory(keyword) {
-        let history = JSON.parse(localStorage.getItem("searchHistory") || "[]");
-        history = [keyword, ...history.filter(h => h !== keyword)].slice(0, 10);
-        localStorage.setItem("searchHistory", JSON.stringify(history));
-        loadSearchHistory();
-    }
-
-    loadSearchHistory();
-
+    $searchInput.addEventListener('click', e => {
+        $searchHistory.style.display = 'revert';
+    })
     // [10-29:수정] 검색어 삭제 및 자동검색 처리 개선
     if ($searchHistory) {
         $searchHistory.addEventListener("mousedown", function (e) {
@@ -280,25 +275,6 @@ function initMapSearch(map, userPosition) {
 
         $searchHistory.addEventListener("click", function (e) {
             const target = e.target;
-
-            // [10-29:수정] 검색어 삭제 버튼 클릭
-            if (target.classList.contains("delete-history")) {
-                const li = target.parentElement;
-                if (!li) return;
-
-                const span = li.querySelector("span");
-                if (!span) return;
-
-                const keyword = span.textContent.trim();
-                let history = JSON.parse(localStorage.getItem("searchHistory") || "[]");
-                const newHistory = history.filter(item => item !== keyword);
-                localStorage.setItem("searchHistory", JSON.stringify(newHistory));
-                loadSearchHistory();
-                console.log("'" + keyword + "' 삭제됨");
-                return;
-            }
-
-            // [10-29:수정] 검색어 클릭 시 자동완성 + 검색 실행
             if (target.tagName === "SPAN") {
                 const keyword = target.textContent.trim();
                 if (!keyword) return;
@@ -315,19 +291,6 @@ function initMapSearch(map, userPosition) {
             dialogHandler.showMOdalSimpleOk('Keyword Error', '키워드를 입력해주세요!');
             return;
         }
-
-        const bakeryKeywords = [
-            '빵', '빵집', '베이글', '베이커리', '제과',
-            '도넛', '디저트', '크루아상', '소금빵', '케이크'
-        ];
-        if (!bakeryKeywords.some(word => keyword.includes(word))) {
-            keyword += ' 빵집';
-        }
-
-        saveSearchHistory(keyword);
-
-
-
         if (userPosition) {
             searchByKeyword(keyword, userPosition, 5000);
         } else {
@@ -341,7 +304,13 @@ function initMapSearch(map, userPosition) {
     });
 
     // ===== 지도 클릭 시 오버레이 닫기 =====
-    kakao.maps.event.addListener(map, 'click', closeOverlay);
-    // [10-29:추가] displayPlaceInfo를 전역 등록 (즐겨찾기에서 지도 보기 기능 호환)
-    window.displayPlaceInfo = displayPlaceInfo;
+    kakao.maps.event.addListener(map, 'click', function () {
+        closeOverlay()
+        if ($searchHistory) {
+            $searchHistory.style.display = 'none';
+            $searchInput.blur();
+        }
+    });
+
+     window.displayPlaceInfo = displayPlaceInfo;
 }

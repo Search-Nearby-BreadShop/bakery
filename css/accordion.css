@@ -1,0 +1,370 @@
+/*아코디언 리스트*/
+.accordion-list {
+    list-style: none;
+    margin: 0;
+    padding: 1rem;
+    overflow-y: auto;
+    height: calc(100% - 6rem);
+    box-sizing: border-box;
+}
+
+/* 항목 */
+.accordion-item {
+    background: #fff;
+    border: 1px solid #f0f0f0;
+    border-radius: 1rem;
+    margin-bottom: 1rem;
+    box-shadow: 0 0.4rem 0.8rem rgba(0,0,0,0.05);
+    transition: box-shadow 0.25s ease;
+    overflow: hidden;
+}
+
+.accordion-item:hover {
+    box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.08);
+}
+
+/* 버튼 영역 */
+.accordion-btn {
+    width: 100%;
+    background: linear-gradient(135deg, #fff7e0, #fff3e0);
+    border: none;
+    outline: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.2rem 1.6rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #4b2e05;
+    cursor: pointer;
+    transition: background 0.25s ease;
+}
+
+.accordion-btn:hover {
+    background: #fff0c9;
+}
+
+.accordion-btn .arrow {
+    transition: transform 0.25s ease;
+    font-size: 1.4rem;
+    color: #795548;
+}
+
+.accordion-item.active .accordion-btn .arrow { /*css->카테고리별색상교체->arrow가 rotate안됨*/
+    transform: rotate(180deg);
+}
+
+/* 내용 */
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    background: #fffdf8;
+    transition: max-height 0.35s ease, padding 0.25s ease;
+    font-size: 1.25rem;
+    white-space: normal;
+    color: #4e342e;
+    padding: 0 1.6rem;
+}
+
+.accordion-item.active .accordion-content {
+    max-height: 20rem;
+    padding: 1.2rem 1.6rem 1.6rem;
+}
+
+/* 우선순위 셀렉트 */
+.priority-control {
+    margin-top: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.priority-control label {
+    font-size: 1.4rem;
+    color: #6d4c41;
+}
+
+.priority-select {
+    flex: 1;
+    font-size: 1.4rem;
+    border: 1px solid #e0e0e0;
+    border-radius: 0.6rem;
+    padding: 0.4rem 0.8rem;
+    background: #fff;
+    outline: none;
+    color: #4e342e;
+    transition: border-color 0.2s ease;
+}
+
+.priority-select:focus {
+    border-color: #ffcc80;
+}
+
+/* 하단 버튼 */
+.fav-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.8rem;
+    margin-top: 1.2rem;
+}
+
+.fav-actions button {
+    border: none;
+    border-radius: 0.8rem;
+    padding: 0.6rem 1.2rem;
+    font-size: 1.3rem;
+    cursor: pointer;
+    transition: background 0.25s ease, transform 0.1s ease;
+    font-weight: 600;
+}
+
+.fav-actions .btn-map {
+    background: #ffe0b2;
+    color: #5d4037;
+}
+
+.fav-actions .btn-map:hover {
+    background: #ffd180;
+    transform: translateY(-1px);
+}
+
+.fav-actions .btn-delete {
+    background: #ffe3e3;
+    color: #a33a3a;
+}
+
+.fav-actions .btn-delete:hover {
+    background: #ffcaca;
+    transform: translateY(-1px);
+}
+
+/*패널 토글 버튼*/
+.toggle-btn {
+    position: fixed;
+    top: 0.8rem;
+    left: 0.8rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    border: none;
+    background: #fff3e0;
+    border-radius: 1.4rem;
+    color: #5d4037;
+    padding: 0.4rem 1rem;
+    font-weight: 600;
+    font-size: 1.2rem;
+    cursor: pointer;
+    box-shadow: 0 0.1rem 0.3rem rgba(0, 0, 0, 0.08);
+    z-index: 10;
+    transition: all 0.25s ease;
+}
+
+.toggle-btn:hover {
+    background: #ffecb3;
+    transform: translateY(-1px);
+}
+
+.arrow-bottom {
+    width: 1.2rem;
+    height: 1.2rem;
+    transition: transform 0.3s ease;
+}
+
+.toggle-icon {
+    width: 2.5rem;
+    height: 2.5rem;
+    transition: transform 0.3s ease;
+    line-height: 1;
+}
+/*즐겨찾기 항목 하나도 없을때 보이는 안내문구*/
+.empty-message {
+    text-align: center;
+    color: #999;
+    padding: 1.5rem;
+    font-size: 1.25rem;
+}
+/*아코디언 리스트*/
+.accordion-list {
+    list-style: none;
+    margin: 0;
+    padding: 1rem;
+    overflow-y: auto;
+    height: calc(100% - 6rem);
+    box-sizing: border-box;
+}
+
+/* 항목 */
+.accordion-item {
+    background: #fff;
+    border: 1px solid #f0f0f0;
+    border-radius: 1rem;
+    margin-bottom: 1rem;
+    box-shadow: 0 0.4rem 0.8rem rgba(0,0,0,0.05);
+    transition: box-shadow 0.25s ease;
+    overflow: hidden;
+}
+
+.accordion-item:hover {
+    box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.08);
+}
+
+/* 버튼 영역 */
+.accordion-btn {
+    width: 100%;
+    background: linear-gradient(135deg, #fff7e0, #fff3e0);
+    border: none;
+    outline: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.2rem 1.6rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #4b2e05;
+    cursor: pointer;
+    transition: background 0.25s ease;
+}
+
+.accordion-btn:hover {
+    background: #fff0c9;
+}
+
+.accordion-btn .arrow {
+    transition: transform 0.25s ease;
+    font-size: 1.4rem;
+    color: #795548;
+}
+
+.accordion-item.active .accordion-btn .arrow { /*css->카테고리별색상교체->arrow가 rotate안됨*/
+    transform: rotate(180deg);
+}
+
+/* 내용 */
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    background: #fffdf8;
+    transition: max-height 0.35s ease, padding 0.25s ease;
+    font-size: 1.25rem;
+    white-space: normal;
+    color: #4e342e;
+    padding: 0 1.6rem;
+}
+
+.accordion-item.active .accordion-content {
+    max-height: 20rem;
+    padding: 1.2rem 1.6rem 1.6rem;
+}
+
+/* 우선순위 셀렉트 */
+.priority-control {
+    margin-top: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.priority-control label {
+    font-size: 1.4rem;
+    color: #6d4c41;
+}
+
+.priority-select {
+    flex: 1;
+    font-size: 1.4rem;
+    border: 1px solid #e0e0e0;
+    border-radius: 0.6rem;
+    padding: 0.4rem 0.8rem;
+    background: #fff;
+    outline: none;
+    color: #4e342e;
+    transition: border-color 0.2s ease;
+}
+
+.priority-select:focus {
+    border-color: #ffcc80;
+}
+
+/* 하단 버튼 */
+.fav-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.8rem;
+    margin-top: 1.2rem;
+}
+
+.fav-actions button {
+    border: none;
+    border-radius: 0.8rem;
+    padding: 0.6rem 1.2rem;
+    font-size: 1.3rem;
+    cursor: pointer;
+    transition: background 0.25s ease, transform 0.1s ease;
+    font-weight: 600;
+}
+
+.fav-actions .btn-map {
+    background: #ffe0b2;
+    color: #5d4037;
+}
+
+.fav-actions .btn-map:hover {
+    background: #ffd180;
+    transform: translateY(-1px);
+}
+
+.fav-actions .btn-delete {
+    background: #ffe3e3;
+    color: #a33a3a;
+}
+
+.fav-actions .btn-delete:hover {
+    background: #ffcaca;
+    transform: translateY(-1px);
+}
+
+/*패널 토글 버튼*/
+.toggle-btn {
+    position: fixed;
+    top: 0.8rem;
+    left: 0.8rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    border: none;
+    background: #fff3e0;
+    border-radius: 1.4rem;
+    color: #5d4037;
+    padding: 0.4rem 1rem;
+    font-weight: 600;
+    font-size: 1.2rem;
+    cursor: pointer;
+    box-shadow: 0 0.1rem 0.3rem rgba(0, 0, 0, 0.08);
+    z-index: 10;
+    transition: all 0.25s ease;
+}
+
+.toggle-btn:hover {
+    background: #ffecb3;
+    transform: translateY(-1px);
+}
+
+.arrow-bottom {
+    width: 1.2rem;
+    height: 1.2rem;
+    transition: transform 0.3s ease;
+}
+
+.toggle-icon {
+    width: 2.5rem;
+    height: 2.5rem;
+    transition: transform 0.3s ease;
+    line-height: 1;
+}
+/*즐겨찾기 항목 하나도 없을때 보이는 안내문구*/
+.empty-message {
+    text-align: center;
+    color: #999;
+    padding: 1.5rem;
+    font-size: 1.25rem;
+}

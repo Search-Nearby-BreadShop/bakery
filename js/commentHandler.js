@@ -22,7 +22,7 @@ function deleteReview($itemToDelete) {
     const reviewId = $itemToDelete.dataset.reviewId;
 
     if (!reviewId) {
-        console.error("오류: 삭제할 리뷰 ID를 li 요소에서 찾을 수 없거나 ID가 유효하지 않습니다.");
+        dialogHandler.showMOdalSimpleOk('Error','삭제할 리뷰 ID를 li 요소에서 찾을 수 없거나 ID가 유효하지 않습니다.')
         return;
     }
 
@@ -42,7 +42,6 @@ function deleteReview($itemToDelete) {
     if (updatedReviews.length === 0) {
         renderReviews(getCurrentSortValue()); // 정렬 순서를 유지하며 렌더링
     }
-
     console.log(`리뷰 ID: ${reviewId} 삭제 완료.`);
 }
 

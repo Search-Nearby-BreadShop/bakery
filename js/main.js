@@ -207,7 +207,16 @@ function deleteFavorite(id) {
     // [10-29:수정 -> localStorage 반영 및 렌더링 갱신]
     storage.set('favorites', favorites);
     renderFavorites();
-
+    const getJosa = (word) => {
+        if (!word) return '가';
+        const lastChar = word.charCodeAt(word.length - 1);
+        if (lastChar < 0xAC00 || lastChar > 0xD7A3) {
+            return '가';
+        }
+        const hasJongseong = (lastChar - 0xAC00) % 28;
+        return hasJongseong ? '이' : '가';
+    };
+    const josa = getJosa(target.name);
     // [10-29:수정 -> 지도 오버레이 찜 버튼 상태 동기화]
     const infoWindows = document.querySelectorAll('.bakeryInfoWindowCustom');
     infoWindows.forEach(box => {
@@ -224,7 +233,7 @@ function deleteFavorite(id) {
     if(window.dialogHandler&&typeof dialogHandler.showMOdalSimpleOk=== 'function'){
         dialogHandler.showMOdalSimpleOk(
             //[10-30:수정=> 즐겨찾기삭제안내]
-            "즐겨찾기 삭제", `'${target.name}'이(가) 즐겨찾기 및 찜 목록에서 제거되었습니다.`);
+            "즐겨찾기 삭제", `${target.name}${josa} 즐겨찾기 및 찜 목록에서 제거되었습니다.`);
     }
 }
 
